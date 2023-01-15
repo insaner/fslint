@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # vim:fileencoding=utf-8
 
 # Note both python and vim understand the above encoding declaration
@@ -23,19 +23,33 @@
  which is available at www.gnu.org
 """
 
+# retired from fc32, due to depending on python2
+# https://bugzilla.redhat.com/show_bug.cgi?id=1777626
+# https://bugzilla.redhat.com/show_bug.cgi?id=1738007
+
+# https://docs.python.org/dev/howto/pyporting.html
+
+from future import standard_library
+standard_library.install_aliases()
+from builtins import map
+from builtins import str
+from builtins import range
+from builtins import object
 import types, os, sys, pipes, time, stat, tempfile, errno
 
 import gettext
 import locale
 
 try:
-    import gtk
+    import gi
+    gi.require_version('Gtk', '3.0')
+    from gi.repository import Gtk, Gdk
 except RuntimeError:
     etype, emsg, etb = sys.exc_info()
     sys.stderr.write(str(emsg)+'\n')
     sys.exit(1)
 
-import gtk.glade
+#import gtk.glade
 
 time_commands=False #print sub commands timing on status line
 
@@ -44,6 +58,12 @@ def puts(string=""): #print is problematic in python 3
 
 liblocation=os.path.dirname(os.path.abspath(sys.argv[0]))
 locale_base=liblocation+'/po/locale'
+
+#liblocation="/usr/share/fslint" #RPM edit
+#locale_base=None #RPM edit
+
+fslint_glade_file=liblocation+"/fslint.glade"
+
 try:
     import fslint
     if sys.argv[0][0] != '/':
@@ -57,7 +77,7 @@ try:
 except:
     pass
 
-class i18n:
+class i18n(object):
 
     def __init__(self):
         self._init_translations()
@@ -67,7 +87,7 @@ class i18n:
     def _init_translations(self):
         #gtk2 only understands utf-8 so convert to unicode
         #which will be automatically converted to utf-8 by pygtk
-        gettext.install("fslint", locale_base, unicode=1)
+        gettext.install("fslint", locale_base)
         global N_ #translate string but not at point of definition
         def N_(string): return string
         gettext.bindtextdomain("fslint",locale_base)
@@ -106,9 +126,9 @@ class i18n:
         else:
             self.filename_encoding=self.preferred_encoding
 
-    class unicode_displayable(unicode):
+    class unicode_displayable(str):
         """translate non displayable chars to an appropriate representation"""
-        translate_table=range(0x2400,0x2420) #control chars
+        translate_table=list(range(0x2400,0x2420)) #control chars
         #Since python 2.2 this will be a new style class as
         #we are subclassing the builtin (immutable) unicode type.
         #Therefore we can make a factory function with the following.
@@ -122,8 +142,8 @@ class i18n:
                         pass #won't be converted anyway
             else:
                 curr_table=cls.translate_table
-            translated_string=unicode(string).translate(curr_table)
-            return unicode.__new__(cls, translated_string)
+            translated_string=str(string).translate(curr_table)
+            return str.__new__(cls, translated_string)
 
     def displayable_utf8(self,orig,exclude="",path=False):
         """Convert to utf8, and also convert chars that are not
@@ -132,11 +152,11 @@ class i18n:
         then try to convert to utf8 using preferred encoding while
         also replacing undisplayable or invalid characters.
         Exclude contains control chars you don't want to translate."""
-        if type(orig) == types.UnicodeType:
+        if type(orig) == str:
             uc=orig
         else:
             try:
-                uc=unicode(orig,"utf-8")
+                uc=str(orig,"utf-8")
             except:
                 try:
                     # Note I don't use "replace" here as that
@@ -144,11 +164,11 @@ class i18n:
                     # This is silly as then you know it's not utf8 so
                     # one should try each character.
                     if path:
-                        uc=unicode(orig,self.filename_encoding)
+                        uc=str(orig,self.filename_encoding)
                     else:
-                        uc=unicode(orig,self.preferred_encoding)
+                        uc=str(orig,self.preferred_encoding)
                 except:
-                    uc=unicode(orig,"ascii","replace")
+                    uc=str(orig,"ascii","replace")
                     # Note I don't like the "replacement char" representation
                     # on fedora core 3 at least (bitstream-vera doesn't have it,
                     # and the nimbus fallback looks like a comma).
@@ -162,7 +182,7 @@ class i18n:
 
     def g_filename_from_utf8(self, string):
         if self.filename_encoding != "utf-8":
-            uc=unicode(string,"utf-8")
+            uc=str(string,"utf-8")
             string=uc.encode(self.filename_encoding) #can raise exception
         return string
 
@@ -185,9 +205,9 @@ try:
         sys.exit(None)
 
     if ("--version","") in lOpts:
-        puts("FSlint 2.47")
+        puts("FSlint 3.01")
         sys.exit(None)
-except getopt.error as msg:
+except (getopt.error, msg):
     puts(msg)
     puts()
     Usage()
@@ -213,7 +233,7 @@ def human_num(num, divisor=1, power=""):
         num = locale.format("%4.f",num,1)+'  '
     return "%s%s" % (num,power)
 
-class pathInfo:
+class pathInfo(object):
     """Gets path info appropriate for display, i.e.
         (ls_colour, du, size, uid, gid, ls_date, mtime)"""
 
@@ -252,7 +272,7 @@ class pathInfo:
         self.mtime = stat_val.st_mtime
         self.inode = stat_val.st_ino
 
-class GladeWrapper:
+class GladeWrapper(object):
     """
     Superclass for glade based applications. Just derive from this
     and your subclass should create methods whose names correspond to
@@ -265,7 +285,10 @@ class GladeWrapper:
     """
     def __init__(self, Filename, WindowName):
         #load glade file.
-        self.widgets = gtk.glade.XML(Filename, WindowName, gettext.textdomain())
+        builder = Gtk.Builder()
+        builder.add_from_file(Filename)
+       # self.widgets = gtk.glade.XML(Filename, WindowName, gettext.textdomain())
+        self.widgets =  builder.get_objects()
         self.GtkWindow = getattr(self, WindowName)
 
         instance_attributes = {}
@@ -287,7 +310,7 @@ class GladeWrapper:
 #     handle(process.outdata, process.errdata)
 #     del(process)
 import select, signal
-class subProcess:
+class subProcess(object):
     """Class representing a child process. It's like popen2.Popen3
        but there are three main differences.
        1. This makes the new child process group leader (using setpgrp())
@@ -337,7 +360,7 @@ class subProcess:
         os.dup2(self.outw,1) #stdout to write side of pipe
         os.dup2(self.errw,2) #stderr to write side of pipe
         #stdout & stderr connected to pipe, so close all other files
-        map(os.close,(self.outr,self.outw,self.errr,self.errw))
+        list(map(os.close,(self.outr,self.outw,self.errr,self.errw)))
         try:
             cmd = ['/bin/sh', '-c', cmd]
             os.execvp(cmd[0], cmd)
@@ -398,7 +421,7 @@ class subProcess:
             self.cleanup()
 
 # Determine what type of distro we're on.
-class distroType:
+class distroType(object):
     def __init__(self):
         types = ("rpm", "dpkg", "pacman")
         for dist in types:
@@ -465,7 +488,7 @@ class dlgUserInteraction(GladeWrapper):
             self.entry.hide()
         if again:
             self.again=again_val
-            if type(again) == types.StringType:
+            if type(again) == bytes:
                 self.chkAgain.set_label(again)
                 self.chkAgain.set_active(again_val)
             #Dialog seems to give focus to first available widget,
@@ -575,10 +598,9 @@ class fslint(GladeWrapper):
 
     def __init__(self, Filename, WindowName):
         os.close(0) #don't hang if any sub cmd tries to read from stdin
-        os.open("/dev/null", os.O_RDONLY)
         self.pwd=os.path.realpath(os.curdir)
         GladeWrapper.__init__(self, Filename, WindowName)
-        self.dlgPath = dlgPath(liblocation+"/fslint.glade", "PathChoose")
+        self.dlgPath = dlgPath(fslint_glade_file, "PathChoose")
         self.dlgPath.init(self)
         self.confirm_delete = True
         self.confirm_delete_group = True
@@ -586,7 +608,7 @@ class fslint(GladeWrapper):
         #Just need to keep this tuple in sync with tabs
         (self.mode_up, self.mode_pkgs, self.mode_nl, self.mode_sn,
          self.mode_tf, self.mode_bl, self.mode_id, self.mode_ed,
-         self.mode_ns, self.mode_rs) = range(10)
+         self.mode_ns, self.mode_rs) = list(range(10))
         self.clists = {
             self.mode_up:self.clist_dups,
             self.mode_pkgs:self.clist_pkgs,
@@ -617,8 +639,7 @@ class fslint(GladeWrapper):
             else:
                 self.ShowErrors(_("Invalid path [") + path + "]")
         for bad_dir in ['/lost+found','/dev','/proc','/sys','/tmp',
-                        '*/.svn','*/CVS', '*/.git', '*/.hg', '*/.bzr',
-                        '*/node_modules']:
+                        '*/.svn','*/CVS', '*/.git', '*/.hg', '*/.bzr']:
             self.addDirs(self.bad_dirs, bad_dir)
         self._alloc_mouse_cursors()
         self.mode=0
@@ -794,7 +815,7 @@ class fslint(GladeWrapper):
     def clist_remove_handled_groups(self, clist):
         row_data = clist.get_data("row_data")
         rowver=clist.rows
-        rows_left = range(rowver)
+        rows_left = list(range(rowver))
         rows_left.reverse()
         for row in rows_left:
             if not get_selectable(row, row_data):
@@ -839,7 +860,7 @@ class fslint(GladeWrapper):
         new_packages = [p for p in requires.split()
                         if p not in self.checked_pkgs]
         self.whatRequires(new_packages, level+1)
-        if level==0: return self.checked_pkgs.keys()
+        if level==0: return list(self.checked_pkgs.keys())
 
     def findpkgs(self, clist_pkgs):
         self.clist_pkgs_order=[False,False] #unordered, descending
@@ -973,7 +994,7 @@ on your system at present."))
             byteWaste += pi.du
             row += 1
 
-        return (human_num(byteWaste,1000).strip() + 'B' + _(" wasted in ") +
+        return (human_num(byteWaste) + _(" bytes wasted in ") +
                 str(row) + _(" files"), pe)
 
     def findsn(self, clist_sn):
@@ -1089,7 +1110,7 @@ on your system at present."))
                 clist_dups.set_row_data(row,file[2]) #mtime
                 row += 1
 
-        return (human_num(byteWaste,1000).strip() + 'B' + _(" wasted in ") +
+        return (human_num(byteWaste) + _(" bytes wasted in ") +
                 str(numWaste) + _(" files (in ") + str(len(alldups)) +
                 _(" groups)"), pe)
 
@@ -1147,7 +1168,7 @@ on your system at present."))
 
     def msgbox(self, message, buttons=('Ok',), entry_default=None,
                again=False, again_val=True):
-        msgbox=dlgUserInteraction(liblocation+"/fslint.glade","UserInteraction")
+        msgbox=dlgUserInteraction(fslint_glade_file,"UserInteraction")
         msgbox.init(self, message, buttons, entry_default, again, again_val)
         msgbox.show()
         response = (msgbox.response,)
@@ -1436,7 +1457,7 @@ on your system at present."))
                 return
             rows_to_save = clist.selection
             if self.mode == self.mode_pkgs:
-                for row in xrange(clist.rows):
+                for row in range(clist.rows):
                     if len(rows_to_save):
                         if row not in rows_to_save: continue
                     rowtext = ''
@@ -1446,7 +1467,7 @@ on your system at present."))
             else:
                 row_data=clist.get_data("row_data")
                 if len(rows_to_save):
-                    for row in xrange(clist.rows):
+                    for row in range(clist.rows):
                         if get_selectable(row, row_data):
                             if row not in rows_to_save: continue
                         else: continue #don't save group headers
@@ -1472,8 +1493,8 @@ on your system at present."))
             path=os.path.split(path)[0]
 
         if urlencode:
-            import urllib
-            path="file://"+urllib.pathname2url(path)
+            import urllib.request, urllib.parse, urllib.error
+            path="file://"+urllib.request.pathname2url(path)
 
         return path
 
@@ -1509,7 +1530,7 @@ on your system at present."))
         row_data = clist.get_data("row_data")
         path = os.path.split(row_data[row])[0]
         select_func=clist.select_row
-        for row in xrange(clist.rows):
+        for row in range(clist.rows):
             if os.path.split(row_data[row])[0] == path:
                 select_func(row, 0)
 
@@ -1583,16 +1604,16 @@ on your system at present."))
                 return
         else:
             #Convert to unicode to match unicode string below
-            wildcard=unicode(wildcard, "utf-8")
+            wildcard=str(wildcard, "utf-8")
         select_func=(select and clist.select_row or clist.unselect_row)
         if '/' not in wildcard or self.mode == self.mode_pkgs:
             #Convert to unicode so ? in glob matching works correctly
-            get_text = lambda row: unicode(clist.get_text(row,0),"utf-8")
+            get_text = lambda row: str(clist.get_text(row,0),"utf-8")
         else: #Note fnmatch ignores trailing \n
             row_data = clist.get_data("row_data")
             get_text = lambda row: row_data[row]
         import fnmatch
-        for row in xrange(clist.rows):
+        for row in range(clist.rows):
             if fnmatch.fnmatch(get_text(row), wildcard):
                 select_func(row, 0)
 
@@ -1633,7 +1654,7 @@ on your system at present."))
         row_data = clist.get_data("row_data")
         clist.freeze()
         clist.select_all()
-        for row in xrange(clist.rows):
+        for row in range(clist.rows):
             if row==0 or not get_selectable(row, row_data): #New group
                 unselect_row = find_row_to_unselect(clist, row, which)
                 if unselect_row == -1:
@@ -1667,7 +1688,7 @@ on your system at present."))
             return True
 
         group=1
-        for row in xrange(clist.rows):
+        for row in range(clist.rows):
             if row==0 or not get_selectable(row, row_data): #New group
                 if group_all_selected(clist, row):
                     if group > skip_groups:
@@ -1700,7 +1721,7 @@ on your system at present."))
 
     def clist_pkgs_sort_by_selection(self, clist):
         selection = clist.selection
-        for row in xrange(clist.rows):
+        for row in range(clist.rows):
             if row in selection:
                 clist.set_text(row,3,"1")
             else:
@@ -1823,7 +1844,7 @@ on your system at present."))
                     if package not in pkgs_selected:
                         num_new_pkgs += 1
                         #Note clist.find_row_from_data() only compares pointers
-                        for row in xrange(clist.rows):
+                        for row in range(clist.rows):
                             if package == clist.get_row_data(row):
                                 clist.select_row(row,0)
 
@@ -1921,7 +1942,7 @@ on your system at present."))
         self.set_cursor(self.WATCH)
         newGroup = False
         row_data=clist.get_data("row_data")
-        for row in xrange(clist.rows):
+        for row in range(clist.rows):
             if row in paths_to_leave:
                 continue
             if not get_selectable(row, row_data): #new group
@@ -1941,7 +1962,7 @@ on your system at present."))
                                 os.symlink(os.path.realpath(keepfile),tmpfile)
                             else:
                                 os.link(keepfile,tmpfile)
-                        except OSError as value:
+                        except (OSError, value):
                             if value.errno == errno.EXDEV and not symlink:
                                 os.symlink(os.path.realpath(keepfile),tmpfile)
                             else:
@@ -2021,10 +2042,10 @@ on your system at present."))
                 totalSaved += startlen - os.stat(path_to_clean).st_size
                 numCleaned += 1
         status =  str(numCleaned) + _(" items cleaned (") + \
-                  human_num(totalSaved,1000).strip() + 'B' + _(" saved)")
+                  human_num(totalSaved) + _(" bytes saved)")
         self.status.set_text(status)
         self.set_cursor(None)
 
-FSlint=fslint(liblocation+"/fslint.glade", "fslint")
+FSlint=fslint(fslint_glade_file, "fslint")
 
 gtk.main ()
