@@ -652,9 +652,11 @@
                             <!-- property name="show_titles">True</property -->
                             <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                             <child>
-                              <object class="GtkLabel" id="label18">
-                                <property name="label" translatable="yes">Paths to exclude</property>
-                                <property name="use_underline">False</property>
+                              <!-- object class="GtkLabel" id="label18" -->
+                              <object class="GtkTreeViewColumn" id="label18">
+                                <!-- property name="label" translatable="yes">Paths to exclude</property -->
+                                <property name="title" translatable="yes">Paths to exclude</property>
+                                <!--<property name="use_underline">False</property>
                                 <property name="use_markup">False</property>
                                 <property name="justify">GTK_JUSTIFY_CENTER</property>
                                 <property name="wrap">False</property>
@@ -666,7 +668,7 @@
                                 <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                 <property name="width_chars">-1</property>
                                 <property name="single_line_mode">False</property>
-                                <property name="angle">0</property>
+                                <property name="angle">0</property>-->
                               </object>
                             </child>
                           </object>
@@ -872,9 +874,11 @@
                                 <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                                 <signal name="button_press_event" handler="on_selection_menu_button_press_event" last_modification_time="Tue, 12 Dec 2006 18:44:16 GMT"/>
                                 <child>
-                                  <object class="GtkLabel" id="label15">
-                                    <property name="label" translatable="yes">Name</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label15" -->
+                                  <object class="GtkTreeViewColumn" id="label15">
+                                    <!-- property name="label" translatable="yes">Name</property -->
+                                    <property name="title" translatable="yes">Name</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -886,13 +890,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label15m">
-                                    <property name="label" translatable="yes">Directory</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label15m" -->
+                                  <object class="GtkTreeViewColumn" id="label15m">
+                                    <!-- property name="label" translatable="yes">Directory</property -->
+                                    <property name="title" translatable="yes">Directory</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -904,13 +910,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label16">
-                                    <property name="label" translatable="yes">Date</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label16" -->
+                                  <object class="GtkTreeViewColumn" id="label16">
+                                    <!-- property name="label" translatable="yes">Date</property -->
+                                    <property name="title" translatable="yes">Date</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_LEFT</property>
                                     <property name="wrap">False</property>
@@ -922,7 +930,7 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                               </object>
@@ -994,9 +1002,11 @@
                                     <signal name="row_activated" handler="on_clist_pkgs_selection_changed" last_modification_time="Wed, 11 Jan 2006 08:54:05 GMT"/>
                                     <!-- signal name="click_column" handler="on_clist_pkgs_click_column" last_modification_time="Wed, 18 Jan 2006 08:45:37 GMT"/ -->
                                     <child>
-                                      <object class="GtkLabel" id="label68">
-                                        <property name="label" translatable="yes">Name</property>
-                                        <property name="use_underline">False</property>
+                                      <!-- object class="GtkLabel" id="label68" -->
+                                      <object class="GtkTreeViewColumn" id="label68">
+                                        <!-- property name="label" translatable="yes">Name</property -->
+                                        <property name="title" translatable="yes">Name</property>
+                                        <!--<property name="use_underline">False</property>
                                         <property name="use_markup">False</property>
                                         <property name="justify">GTK_JUSTIFY_CENTER</property>
                                         <property name="wrap">False</property>
@@ -1008,13 +1018,15 @@
                                         <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                         <property name="width_chars">-1</property>
                                         <property name="single_line_mode">False</property>
-                                        <property name="angle">0</property>
+                                        <property name="angle">0</property>-->
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="GtkLabel" id="label69">
-                                        <property name="label" translatable="yes">Size</property>
-                                        <property name="use_underline">False</property>
+                                      <!-- object class="GtkLabel" id="label69" -->
+                                      <object class="GtkTreeViewColumn" id="label69">
+                                        <!-- property name="label" translatable="yes">Size</property -->
+                                        <property name="title" translatable="yes">Size</property>
+                                        <!--<property name="use_underline">False</property>
                                         <property name="use_markup">False</property>
                                         <property name="justify">GTK_JUSTIFY_RIGHT</property>
                                         <property name="wrap">False</property>
@@ -1026,13 +1038,15 @@
                                         <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                         <property name="width_chars">-1</property>
                                         <property name="single_line_mode">False</property>
-                                        <property name="angle">0</property>
+                                        <property name="angle">0</property>-->
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="GtkLabel" id="label70">
-                                        <property name="label">Size_for_Sort</property>
-                                        <property name="use_underline">False</property>
+                                      <!-- object class="GtkLabel" id="label70" -->
+                                      <object class="GtkTreeViewColumn" id="label70">
+                                        <!-- property name="label">Size_for_Sort</property -->
+                                        <property name="title">Size_for_Sort</property>
+                                        <!--<property name="use_underline">False</property>
                                         <property name="use_markup">False</property>
                                         <property name="justify">GTK_JUSTIFY_RIGHT</property>
                                         <property name="wrap">False</property>
@@ -1044,13 +1058,15 @@
                                         <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                         <property name="width_chars">-1</property>
                                         <property name="single_line_mode">False</property>
-                                        <property name="angle">0</property>
+                                        <property name="angle">0</property>-->
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="GtkLabel" id="label71">
-                                        <property name="label">Selection_for_Sort</property>
-                                        <property name="use_underline">False</property>
+                                      <!-- object class="GtkLabel" id="label71" -->
+                                      <object class="GtkTreeViewColumn" id="label71">
+                                        <!-- property name="label">Selection_for_Sort</property -->
+                                        <property name="title">Selection_for_Sort</property>
+                                        <!--<property name="use_underline">False</property>
                                         <property name="use_markup">False</property>
                                         <property name="justify">GTK_JUSTIFY_RIGHT</property>
                                         <property name="wrap">False</property>
@@ -1062,7 +1078,7 @@
                                         <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                         <property name="width_chars">-1</property>
                                         <property name="single_line_mode">False</property>
-                                        <property name="angle">0</property>
+                                        <property name="angle">0</property>-->
                                       </object>
                                     </child>
                                   </object>
@@ -1247,9 +1263,11 @@
                                 <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                                 <signal name="button_press_event" handler="on_selection_menu_button_press_event" last_modification_time="Mon, 18 Dec 2006 19:11:43 GMT"/>
                                 <child>
-                                  <object class="GtkLabel" id="label20">
-                                    <property name="label" translatable="yes">Name</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label20" -->
+                                  <object class="GtkTreeViewColumn" id="label20">
+                                    <!-- property name="label" translatable="yes">Name</property -->
+                                    <property name="title" translatable="yes">Name</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -1261,13 +1279,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label21">
-                                    <property name="label" translatable="yes">Directory</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label21" -->
+                                  <object class="GtkTreeViewColumn" id="label21">
+                                    <!-- property name="label" translatable="yes">Directory</property -->
+                                    <property name="title" translatable="yes">Directory</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -1279,7 +1299,7 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                               </object>
@@ -1535,9 +1555,11 @@
                                 <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                                 <signal name="button_press_event" handler="on_selection_menu_button_press_event" last_modification_time="Mon, 18 Dec 2006 19:18:32 GMT"/>
                                 <child>
-                                  <object class="GtkLabel" id="label24">
-                                    <property name="label" translatable="yes">Name</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label24" -->
+                                  <object class="GtkTreeViewColumn" id="label24">
+                                    <!-- property name="label" translatable="yes">Name</property -->
+                                    <property name="title" translatable="yes">Name</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_LEFT</property>
                                     <property name="wrap">False</property>
@@ -1549,13 +1571,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label25">
-                                    <property name="label" translatable="yes">Directory</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label25" -->
+                                  <object class="GtkTreeViewColumn" id="label25">
+                                    <!-- property name="label" translatable="yes">Directory</property -->
+                                    <property name="title" translatable="yes">Directory</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_LEFT</property>
                                     <property name="wrap">False</property>
@@ -1567,13 +1591,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label26">
-                                    <property name="label" translatable="yes">Size</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label26" -->
+                                  <object class="GtkTreeViewColumn" id="label26">
+                                    <!-- property name="label" translatable="yes">Size</property -->
+                                    <property name="title" translatable="yes">Size</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_RIGHT</property>
                                     <property name="wrap">False</property>
@@ -1585,7 +1611,7 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                               </object>
@@ -1733,9 +1759,11 @@
                                 <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                                 <signal name="button_press_event" handler="on_selection_menu_button_press_event" last_modification_time="Mon, 18 Dec 2006 19:18:52 GMT"/>
                                 <child>
-                                  <object class="GtkLabel" id="label29">
-                                    <property name="label" translatable="yes">Name</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label29" -->
+                                  <object class="GtkTreeViewColumn" id="label29">
+                                    <!-- property name="label" translatable="yes">Name</property -->
+                                    <property name="title" translatable="yes">Name</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -1747,13 +1775,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label30">
-                                    <property name="label" translatable="yes">Directory</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label30" -->
+                                  <object class="GtkTreeViewColumn" id="label30">
+                                    <!-- property name="label" translatable="yes">Directory</property -->
+                                    <property name="title" translatable="yes">Directory</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -1765,13 +1795,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label31">
-                                    <property name="label" translatable="yes">Size</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label31" -->
+                                  <object class="GtkTreeViewColumn" id="label31">
+                                    <!-- property name="label" translatable="yes">Size</property -->
+                                    <property name="title" translatable="yes">Size</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -1783,13 +1815,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label32">
-                                    <property name="label" translatable="yes">Date</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label32" -->
+                                  <object class="GtkTreeViewColumn" id="label32">
+                                    <!-- property name="label" translatable="yes">Date</property -->
+                                    <property name="title" translatable="yes">Date</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -1801,7 +1835,7 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                               </object>
@@ -1971,9 +2005,11 @@
                                 <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                                 <signal name="button_press_event" handler="on_selection_menu_button_press_event" last_modification_time="Mon, 18 Dec 2006 19:19:04 GMT"/>
                                 <child>
-                                  <object class="GtkLabel" id="label34">
-                                    <property name="label" translatable="yes">Name</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label34" -->
+                                  <object class="GtkTreeViewColumn" id="label34">
+                                    <!-- property name="label" translatable="yes">Name</property -->
+                                    <property name="title" translatable="yes">Name</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -1985,13 +2021,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label35">
-                                    <property name="label" translatable="yes">Directory</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label35" -->
+                                  <object class="GtkTreeViewColumn" id="label35">
+                                    <!-- property name="label" translatable="yes">Directory</property -->
+                                    <property name="title" translatable="yes">Directory</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2003,13 +2041,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label36">
-                                    <property name="label" translatable="yes">Target</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label36" -->
+                                  <object class="GtkTreeViewColumn" id="label36">
+                                    <!-- property name="label" translatable="yes">Target</property -->
+                                    <property name="title" translatable="yes">Target</property>
+                                   <!-- <property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2021,7 +2061,7 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                               </object>
@@ -2084,9 +2124,11 @@
                                 <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                                 <signal name="button_press_event" handler="on_selection_menu_button_press_event" last_modification_time="Mon, 18 Dec 2006 19:19:19 GMT"/>
                                 <child>
-                                  <object class="GtkLabel" id="label37">
-                                    <property name="label" translatable="yes">Name</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label37" -->
+                                  <object class="GtkTreeViewColumn" id="label37">
+                                    <!-- property name="label" translatable="yes">Name</property -->
+                                    <property name="title" translatable="yes">Name</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2098,13 +2140,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label38">
-                                    <property name="label" translatable="yes">Directory</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label38" -->
+                                  <object class="GtkTreeViewColumn" id="label38">
+                                    <!-- property name="label" translatable="yes">Directory</property -->
+                                    <property name="title" translatable="yes">Directory</property>
+                                   <!-- <property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2116,13 +2160,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label39">
-                                    <property name="label" translatable="yes">UID</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label39" -->
+                                  <object class="GtkTreeViewColumn" id="label39">
+                                    <!-- property name="label" translatable="yes">UID</property -->
+                                    <property name="title" translatable="yes">UID</property>
+                                   <!-- <property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2134,13 +2180,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label40">
-                                    <property name="label" translatable="yes">GID</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label40" -->
+                                  <object class="GtkTreeViewColumn" id="label40">
+                                    <!-- property name="label" translatable="yes">GID</property -->
+                                    <property name="title" translatable="yes">GID</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2152,13 +2200,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label41">
-                                    <property name="label" translatable="yes">Size</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label41" -->
+                                  <object class="GtkTreeViewColumn" id="label41">
+                                    <!-- property name="label" translatable="yes">Size</property -->
+                                    <property name="title" translatable="yes">Size</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2170,13 +2220,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label42">
-                                    <property name="label" translatable="yes">Date</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label42" -->
+                                  <object class="GtkTreeViewColumn" id="label42">
+                                    <!-- property name="label" translatable="yes">Date</property -->
+                                    <property name="title" translatable="yes">Date</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2188,7 +2240,7 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                               </object>
@@ -2245,9 +2297,11 @@
                             <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                             <signal name="button_press_event" handler="on_selection_menu_button_press_event" last_modification_time="Mon, 18 Dec 2006 19:19:32 GMT"/>
                             <child>
-                              <object class="GtkLabel" id="label43">
-                                <property name="label" translatable="yes">Name</property>
-                                <property name="use_underline">False</property>
+                              <!-- object class="GtkLabel" id="label43" -->
+                              <object class="GtkTreeViewColumn" id="label43">
+                                <!-- property name="label" translatable="yes">Name</property -->
+                                <property name="title" translatable="yes">Name</property>
+                                <!--<property name="use_underline">False</property>
                                 <property name="use_markup">False</property>
                                 <property name="justify">GTK_JUSTIFY_CENTER</property>
                                 <property name="wrap">False</property>
@@ -2259,13 +2313,15 @@
                                 <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                 <property name="width_chars">-1</property>
                                 <property name="single_line_mode">False</property>
-                                <property name="angle">0</property>
+                                <property name="angle">0</property>-->
                               </object>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="label53">
-                                <property name="label" translatable="yes">Directory</property>
-                                <property name="use_underline">False</property>
+                              <!-- object class="GtkLabel" id="label53" -->
+                              <object class="GtkTreeViewColumn" id="label53">
+                                <!-- property name="label" translatable="yes">Directory</property -->
+                                <property name="title" translatable="yes">Directory</property>
+                                <!--<property name="use_underline">False</property>
                                 <property name="use_markup">False</property>
                                 <property name="justify">GTK_JUSTIFY_CENTER</property>
                                 <property name="wrap">False</property>
@@ -2277,13 +2333,15 @@
                                 <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                 <property name="width_chars">-1</property>
                                 <property name="single_line_mode">False</property>
-                                <property name="angle">0</property>
+                                <property name="angle">0</property>-->
                               </object>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="label44">
-                                <property name="label" translatable="yes">Date</property>
-                                <property name="use_underline">False</property>
+                              <!-- object class="GtkLabel" id="label44" -->
+                              <object class="GtkTreeViewColumn" id="label44">
+                                <!-- property name="label" translatable="yes">Date</property -->
+                                <property name="title" translatable="yes">Date</property>
+                                <!--<property name="use_underline">False</property>
                                 <property name="use_markup">False</property>
                                 <property name="justify">GTK_JUSTIFY_CENTER</property>
                                 <property name="wrap">False</property>
@@ -2295,7 +2353,7 @@
                                 <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                 <property name="width_chars">-1</property>
                                 <property name="single_line_mode">False</property>
-                                <property name="angle">0</property>
+                                <property name="angle">0</property>-->
                               </object>
                             </child>
                           </object>
@@ -2368,9 +2426,11 @@
                                 <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                                 <signal name="button_press_event" handler="on_selection_menu_button_press_event" last_modification_time="Mon, 18 Dec 2006 19:19:47 GMT"/>
                                 <child>
-                                  <object class="GtkLabel" id="label45">
-                                    <property name="label" translatable="yes">Name</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label45" -->
+                                  <object class="GtkTreeViewColumn" id="label45">
+                                    <!-- property name="label" translatable="yes">Name</property -->
+                                    <property name="title" translatable="yes">Name</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2382,13 +2442,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label46">
-                                    <property name="label" translatable="yes">Directory</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label46" -->
+                                  <object class="GtkTreeViewColumn" id="label46">
+                                    <!-- property name="label" translatable="yes">Directory</property -->
+                                    <property name="title" translatable="yes">Directory</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2400,13 +2462,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label47">
-                                    <property name="label" translatable="yes">Size</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label47" -->
+                                  <object class="GtkTreeViewColumn" id="label47">
+                                    <!-- property name="label" translatable="yes">Size</property -->
+                                    <property name="title" translatable="yes">Size</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2418,13 +2482,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label52">
-                                    <property name="label" translatable="yes">Date</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label52" -->
+                                  <object class="GtkTreeViewColumn" id="label52">
+                                    <!-- property name="label" translatable="yes">Date</property -->
+                                    <property name="title" translatable="yes">Date</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2436,7 +2502,7 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                               </object>
@@ -2694,9 +2760,11 @@
                                 <!-- property name="shadow_type">GTK_SHADOW_IN</property -->
                                 <signal name="button_press_event" handler="on_selection_menu_button_press_event" last_modification_time="Mon, 18 Dec 2006 19:20:00 GMT"/>
                                 <child>
-                                  <object class="GtkLabel" id="label48">
-                                    <property name="label" translatable="yes">Name</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label48" -->
+                                  <object class="GtkTreeViewColumn" id="label48">
+                                    <!-- property name="label" translatable="yes">Name</property -->
+                                    <property name="title" translatable="yes">Name</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2708,13 +2776,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label49">
-                                    <property name="label" translatable="yes">Directory</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label49" -->
+                                  <object class="GtkTreeViewColumn" id="label49">
+                                    <!-- property name="label" translatable="yes">Directory</property -->
+                                    <property name="title" translatable="yes">Directory</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2726,13 +2796,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label50">
-                                    <property name="label" translatable="yes">Size</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label50" -->
+                                  <object class="GtkTreeViewColumn" id="label50">
+                                    <!-- property name="label" translatable="yes">Size</property -->
+                                    <property name="title" translatable="yes">Size</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2744,13 +2816,15 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label51">
-                                    <property name="label" translatable="yes">Date</property>
-                                    <property name="use_underline">False</property>
+                                  <!-- object class="GtkLabel" id="label51" -->
+                                  <object class="GtkTreeViewColumn" id="label51">
+                                    <!-- property name="label" translatable="yes">Date</property -->
+                                    <property name="title" translatable="yes">Date</property>
+                                    <!--<property name="use_underline">False</property>
                                     <property name="use_markup">False</property>
                                     <property name="justify">GTK_JUSTIFY_CENTER</property>
                                     <property name="wrap">False</property>
@@ -2762,7 +2836,7 @@
                                     <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
                                     <property name="width_chars">-1</property>
                                     <property name="single_line_mode">False</property>
-                                    <property name="angle">0</property>
+                                    <property name="angle">0</property>-->
                                   </object>
                                 </child>
                               </object>
